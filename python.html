@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Python with TKinter</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+	<div class="reveal">
+		<!-- Footer && <Header -->
+		<style>
+			.reveal .footer {
+				position: absolute;
+				bottom: 1em;
+				left: 1em;
+				font-size: 0.5em;
+			}
+
+			h1,h2,h3,h4,h5,h6{
+				padding-top: 2%;
+			}
+		</style>
+		<div class='footer'>
+			TINF19B4 <br>
+			31.05.2021<br>
+			Paul Wolf
+		</div>
+
+		<div class="slides">
+			<section>
+				<h1>Pyhton</h1>
+
+				<p>with TKinter</p>
+
+				<p><small>From Paul Wolf</small></p>
+			</section>
+
+			<section>
+				<h2 style="padding-top: 1%">table of contents</h2>
+				<ol type="1" style="font-size:60%;">
+					<li>General</li>
+					<ol>
+						<li>Bascics</li>
+						<li>Commands</li>
+						<li>Difference to other programming languages</li>
+					</ol>
+					<li>TKinter</li>
+					<ol>
+						<li>General</li>
+						<li>Example</li>
+					</ol>
+					<li>Demo</li>
+				</ol>
+			</section>
+
+			<section>
+				<h1>1. General</h1>
+			</section>
+
+			<section>
+				<h2>1.1. Basics </h2>
+				<ul>
+					<li>Python is a universal, usually interpreted, high-level programming language. It claims to promote an easily readable, concise programming style</li>
+					<h3> </h3>
+					<li>For example, blocks are not structured by curly brackets, but by indentations</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2>1.2.Commands</h2>
+				<img style="width: 80%" src="./ressources/images/phytonbefehle.PNG">
+			</section>
+
+			<section>
+				<h2 >1.3 Difference to other programming language</h2>
+			</section>
+
+			<section data-auto-animate>
+				<h2 data-id="code-title">JavaScript Code</h2>
+				<pre data-id="code-animation">
+					<code class="hljs" data-trim data-line-numbers>
+						import java.io.*;
+						import java.text.*;
+						import java.util.*;
+						public class LesenSchreibenTextdatei
+						{
+						...
+						}
+						}
+						}
+					</code>
+				</pre>
+			</section>
+
+			<section data-auto-animate>
+				<h2 data-id="code-title">logically correct but easy to read?</h2>
+				<pre data-id="code-animation">
+					<code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24">
+						<script type="text/template">
+							import java.io.*;
+							import java.text.*;
+							import java.util.*;
+							public class LesenSchreibenTextdatei
+							{
+							public static void main( String[] args )
+							{
+							final String[] KEYS = { "user.name", "user.language", "user.home", "os.name", "java.version" };
+							Vector vec = new Vector();
+							String s;
+							try {
+							BufferedReader in = new BufferedReader(
+							new InputStreamReader(
+							new FileInputStream( "MeineTextDatei.txt" ) ) );
+							while( null != (s = in.readLine()) ) {
+							vec.add( s );
+							}
+							}
+							catch( FileNotFoundException ex ) {
+							}
+							catch( Exception ex ) {
+							System.out.println( ex );
+							}
+							finally {
+							if( in != null ) in.close();
+							}
+							if( 0 >= vec.size() ) {
+							for( int i=0; i<KEYS.length; i++ ) {
+							vec.add( KEYS[i] + " = " + System.getProperty( KEYS[i] ) );
+							}
+							}
+							vec.add( "Zeitstempel = " + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss,SSS" ).format( new Date() ) );
+							try {
+							BufferedWriter out = new BufferedWriter(
+							new OutputStreamWriter(
+							new FileOutputStream( "MeineTextDatei.txt" ) ) );
+							for( int i=0; i<vec.size(); i++ ) {
+							s = vec.get( i ).toString();
+							System.out.println( s );
+							out.write( s, 0, s.length() );
+							out.newLine();
+							}
+							} catch( IOException ex ) {
+							System.out.println( ex );
+							} finally {
+							if( out != null ) out.close();
+							}
+							}
+							}
+						</script>
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<h2 data-id="code-title">Phyton Code</h2>
+				<pre data-id="code-animation">
+					<code class="hljs" data-trim data-line-numbers>
+						from tkinter import *
+						from random import randint
+
+						def buttonWuerfelnClick():
+						augen = randint(1,6)
+						labelWuerfel.config(image=imageListe[augen-1])
+						...
+						tkFenster.mainloop()
+					</code>
+				</pre>
+			</section>
+
+			<section data-auto-animate>
+				<h2 data-id="code-title">logically incorrect</h2>
+				<pre data-id="code-animation">
+					<code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24">
+						<script type="text/template">
+							from tkinter import *
+							from random import randint
+
+							def buttonWuerfelnClick():
+							augen = randint(1,6)
+							labelWuerfel.config(image=imageListe[augen-1])
+
+							tkFenster = Tk()
+							tkFenster.title('Test')
+							tkFenster.geometry('120x110')
+
+							frameWuerfel = Frame(master=tkFenster, bg='#FFFFFF')
+							frameWuerfel.place(x=5, y=5, width=110, height=100)
+
+							imageListe = [
+							PhotoImage(file='w1.gif'),
+							PhotoImage(file='w2.gif'),
+							PhotoImage(file='w3.gif'),
+							PhotoImage(file='w4.gif'),
+							PhotoImage(file='w5.gif'),
+							PhotoImage(file='w6.gif')
+							]
+
+							labelWuerfel = Label(master=frameWuerfel, image=imageListe[0])
+							labelWuerfel.place(x=40, y=25, width=30, height=30)
+
+							buttonWuerfel = Button(master=frameWuerfel, text='würfeln', command=buttonWuerfelnClick)
+							buttonWuerfel.place(x=5, y=75, width=100, height=20)
+
+							tkFenster.mainloop()
+						</script>
+					</code>
+				</pre>
+			</section>
+
+			<section data-auto-animate>
+				<h2 data-id="code-title">logically correct</h2>
+				<pre data-id="code-animation">
+					<code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24">
+						<script type="text/template">
+							from tkinter import *
+							from random import randint
+
+							def buttonWuerfelnClick():
+								augen = randint(1,6)
+								labelWuerfel.config(image=imageListe[augen-1])
+
+							tkFenster = Tk()
+							tkFenster.title('Test')
+							tkFenster.geometry('120x110')
+
+							frameWuerfel = Frame(master=tkFenster, bg='#FFFFFF')
+							frameWuerfel.place(x=5, y=5, width=110, height=100)
+
+							imageListe = [
+								PhotoImage(file='w1.gif'),
+								PhotoImage(file='w2.gif'),
+								PhotoImage(file='w3.gif'),
+								PhotoImage(file='w4.gif'),
+								PhotoImage(file='w5.gif'),
+								PhotoImage(file='w6.gif')
+							]
+
+							labelWuerfel = Label(master=frameWuerfel, image=imageListe[0])
+							labelWuerfel.place(x=40, y=25, width=30, height=30)
+
+							buttonWuerfel = Button(master=frameWuerfel, text='würfeln', command=buttonWuerfelnClick)
+							buttonWuerfel.place(x=5, y=75, width=100, height=20)
+
+							tkFenster.mainloop()
+						</script>
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<h1>2. TKinter</h1>
+			</section>
+
+			<section>
+				<h3>2.1. General</h3>
+				<ul>
+					<li>
+						Tkinter is a language interface for the GUI toolkit Tk for the Python programming language
+					</li>
+					<li>
+						Tkinter was the first GUI toolkit for Python, which is why it is now also part of the Python scope of delivery on Mac OS and Windows
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>2.1. General</h3>
+				<ul>
+					<li>
+						Through Tkinter, it is possible with Python to create programmes with a graphical user interface. These programmes and GUIs can be used under Windows, Mac OS and under all common Linux distributions
+					</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>2.2. Example</h3>
+				<img style="width: 80%" src="./ressources/images/hello_world_programm.PNG">
+			</section>
+
+			<section>
+				<h3>2.2. Example</h3>
+				<img style="width: 80%" src="./ressources/images/hello_world_fenster.PNG">
+			</section>
+
+			<section>
+				<h1>3. Demo</h1>
+			</section>
+
+		</div>
+				<!-- NO CHANGING AFTER HERE -->
+
+		<div id="scripts">
+			<script src="dist/reveal.js"></script>
+			<script src="plugin/notes/notes.js"></script>
+			<script src="plugin/markdown/markdown.js"></script>
+			<script src="plugin/highlight/highlight.js"></script>
+			<script>
+				// More info about initialization & config:
+				// - https://revealjs.com/initialization/
+				// - https://revealjs.com/config/
+				Reveal.initialize({
+					hash: true,
+					showNotes: "true",
+					// Learn about plugins: https://revealjs.com/plugins/
+					plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+				});
+				Reveal.on( 'slidechanged', event => {
+					if (event.indexh == 10){
+						document.getElementById("troll").innerHTML = 'Today for only 99,99€  and <br> your paper + ink + printer';
+					}
+					if(event.indexh < 10 || event.indexh > 10){
+						document.getElementById("troll").innerHTML = '';
+					}
+
+					//#####################################################
+
+					if (event.indexh == 0){
+						document.getElementById("persons").innerHTML = nicoIcon;
+					}
+					if (event.indexh == 3){
+						document.getElementById("persons").innerHTML = dannyIcon;
+					}
+					if (event.indexh == 6 || event.indexh == 9){
+						document.getElementById("persons").innerHTML = paulicon;
+					}
+					if (event.indexh == 8 || event.indexh == 10){
+						document.getElementById("persons").innerHTML = lorenzicon;
+					}
+					if (event.indexh == 8 && event.indexv > 3){
+						document.getElementById("persons").innerHTML = daveIcon;
+					}
+				} );
+			</script>
+		</div>
+	</body>
+</html>
